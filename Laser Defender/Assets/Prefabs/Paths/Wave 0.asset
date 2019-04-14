@@ -19,4 +19,4 @@ MonoBehaviour:
   enemySpawnRate: 0.5
   spawnRND: 0.2
   numberOfEnemies: 5
-  enemyMoveSpeed: 2
+  enemyMoveSpeed: 4

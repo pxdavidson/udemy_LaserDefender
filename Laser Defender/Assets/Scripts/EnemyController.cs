@@ -5,9 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     // Declare variables
-    [SerializeField] WaveScriptableObject waveConfig;
+    WaveScriptableObject waveConfig;
     List<Transform> waypoints;
-    [SerializeField] float moveSpeed = 2f;
     int waypointIndex = 0;
 
     // Start is called before the first frame update
@@ -17,13 +16,19 @@ public class EnemyController : MonoBehaviour
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
+    // Set WaveConfig
+    public void SetWaveConfig(WaveScriptableObject waveConfig)
+    {
+        this.waveConfig = waveConfig;
+    }
+    
     // Update is called once per frame
     void Update()
     {
         if (waypointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
-            var unboundMoveSpeed = moveSpeed * Time.deltaTime;
+            var unboundMoveSpeed = waveConfig.GetEnemyMoveSpeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, unboundMoveSpeed);
             if (transform.position == targetPosition)
             {
