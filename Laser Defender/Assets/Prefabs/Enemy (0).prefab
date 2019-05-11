@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1990306319669308446}
   - component: {fileID: 8101729023298185344}
   - component: {fileID: 7114158465508007458}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,14 +104,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 0.84}
+    oldSize: {x: 0.775, y: 0.7}
     newSize: {x: 0.93, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -133,3 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  enemyLaser: {fileID: 5890728723657038213, guid: 42170a962ed15ae4c8b4c6e0fe33fd27,
+    type: 3}
+  projectileSpeed: 5
+  fireRate: 0.5
+  fireDelayMin: 0.5
+  fireDelayMax: 2
+  ExplosionVFX: {fileID: 7698544099635982996, guid: d4bfcf01a194c484c86cb4757215a8e3,
+    type: 3}

@@ -2,25 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
     // Declare variables
+    [Header ("Player")]
+    [SerializeField] int health = 200;
+    [SerializeField] float playerSpeed = 10f;
+
+    [Header ("Projectile")]
     [SerializeField] GameObject playerLaser;
     [SerializeField] float projectileSpeed = 20f;
     [SerializeField] float fireDelay = 1;
+
+    [Header("VFX")]
+    [SerializeField] GameObject ExplosionVFX;
+
+    // Manage coroutines for use in StopCoroutine("X")
     Coroutine firingCoroutine;
 
-    [SerializeField] float playerSpeed = 10f;
-
+    // Camera restraints to stop player going of sreen
     float xMin;
     float xMax;
     float yMin;
     float yMax;
 
+    // Cache
+    AudioController audioController;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioController = FindObjectOfType<AudioController>();
         SetMovementLimit();
     }
 
@@ -83,8 +97,44 @@ public class PlayerControl : MonoBehaviour
         while (true)
         {
             GameObject playerLaserInstance = Instantiate(playerLaser, transform.position, Quaternion.identity) as GameObject;
+            audioController.PlayPlayerFire();
             playerLaserInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             yield return new WaitForSeconds(fireDelay);
         }
-    } 
+    }
+
+    // Detects triggers
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject projectile = collision.gameObject;
+        ProcessDamage(projectile);
+    }
+    
+    // Calculates damage and applies to health pool
+    private void ProcessDamage(GameObject projectile)
+    {
+        DamageDealer damageDealer = projectile.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Explode();
+        }
+        else
+        {
+            // Do nothing
+        }
+    }
+
+    // Destroys player
+    private void Explode()
+    {
+        GameObject VFXInstance = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
+        audioController.PlayPlayerExplode();
+        Destroy(VFXInstance, 1);
+        Destroy(gameObject);
+        new WaitForSeconds(2);
+        SceneManager.LoadScene(2);
+    }
 }
