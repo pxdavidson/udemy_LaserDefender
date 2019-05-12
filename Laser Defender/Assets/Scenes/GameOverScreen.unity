@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 4168880630280260109, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_Name
-      value: Start Text
+      value: Replay Text
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352216, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
@@ -425,7 +425,7 @@ PrefabInstance:
     - target: {fileID: 4168880630280260111, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_Text
-      value: Press LCtrl to Replay
+      value: Press ENTER to Replay
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260111, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
