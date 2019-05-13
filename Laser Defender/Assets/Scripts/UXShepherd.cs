@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class UXShepherd : MonoBehaviour
 {
-    
+    // Declare variables
+    [SerializeField] float deathDelay = 2f;
+
     // Starts the game if LCtrl is pressed
     private void StartGame()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(1);
         }
@@ -30,6 +32,19 @@ public class UXShepherd : MonoBehaviour
         {
             // Do nothing
         }
+    }
+
+    // Load Game Over screen
+    public void LoadGameOver()
+    {
+        StartCoroutine(WaitAndLoad());
+    }
+
+    // Waits for specified time then loads Game Over
+    IEnumerator WaitAndLoad()
+    {
+        yield return new WaitForSeconds(deathDelay);
+        SceneManager.LoadScene(2);
     }
 
     // Update is called once per frame

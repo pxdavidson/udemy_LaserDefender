@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     [Header ("Projectile")]
     [SerializeField] GameObject playerLaser;
     [SerializeField] float projectileSpeed = 20f;
-    [SerializeField] float fireDelay = 1;
+    [SerializeField] float fireDelay = 3;
 
     [Header("VFX")]
     [SerializeField] GameObject ExplosionVFX;
@@ -130,11 +130,10 @@ public class PlayerControl : MonoBehaviour
     // Destroys player
     private void Explode()
     {
+        FindObjectOfType<UXShepherd>().LoadGameOver();
         GameObject VFXInstance = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
         audioController.PlayPlayerExplode();
         Destroy(VFXInstance, 1);
         Destroy(gameObject);
-        new WaitForSeconds(2);
-        SceneManager.LoadScene(2);
     }
 }
