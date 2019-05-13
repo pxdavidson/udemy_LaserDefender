@@ -14,6 +14,25 @@ public class AudioController : MonoBehaviour
     [SerializeField] AudioClip playerFireSFX;
     [SerializeField] [Range(0, 1)] float playerFireVolume = 0.25f;
 
+    // Called on Awake
+    void Awake()
+    {
+        MakeSingleton();
+    }
+
+    // Makes the gameObjct a singleton
+    private void MakeSingleton()
+    {
+        if (FindObjectsOfType<AudioController>().Length <= 1)
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Plays Enemy Explode SFX
     public void PlayEnemyExplode()
     {

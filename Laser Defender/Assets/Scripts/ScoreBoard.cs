@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
-    // Declare variables
-    int score = 0;
+    // Decalre variables
+    int score;
     
     // Cache
     Text scoreText;
@@ -15,17 +15,13 @@ public class ScoreBoard : MonoBehaviour
     void Start()
     {
         scoreText = GetComponent<Text>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        scoreText.text = score.ToString();
+        IncreaseScore(0);
     }
 
     // Updates the score value
-    public void IncreaseScore(int scoreAddition)
+    public void IncreaseScore(int addScore)
     {
-        score = score + scoreAddition;
+        score = score + addScore;
+        scoreText.text = score.ToString();
     }
 }

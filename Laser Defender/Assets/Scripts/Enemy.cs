@@ -20,14 +20,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject ExplosionVFX;
 
     // Cache
-    AudioController audioController;
     ScoreBoard scoreBoard;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        audioController = FindObjectOfType<AudioController>();
         scoreBoard = FindObjectOfType<ScoreBoard>();
         StartCoroutine(FireLaser());
     }
@@ -38,7 +36,7 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             GameObject enemyLaserInstance = Instantiate(enemyLaser, transform.position, Quaternion.identity) as GameObject;
-            audioController.PlayEnemyFire();
+            FindObjectOfType<AudioController>().PlayEnemyFire();
             enemyLaserInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
             yield return new WaitForSeconds(Random.Range(fireDelayMin, fireDelayMax));
         }
@@ -73,7 +71,7 @@ public class Enemy : MonoBehaviour
     private void Explode()
     {
         GameObject VFXInstance = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
-        audioController.PlayEnemyExplode();
+        FindObjectOfType<AudioController>().PlayEnemyExplode();
         Destroy(VFXInstance, 1);
         Destroy(gameObject);
     }

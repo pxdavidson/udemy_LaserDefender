@@ -29,15 +29,19 @@ public class PlayerControl : MonoBehaviour
     float yMax;
 
     // Cache
-    AudioController audioController;
     HealthUI healthUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioController = FindObjectOfType<AudioController>();
-        healthUI = FindObjectOfType<HealthUI>();
+        PopulateCache();
         SetMovementLimit();
+    }
+
+    // Populates the local cache
+    private void PopulateCache()
+    {
+        healthUI = FindObjectOfType<HealthUI>();
     }
 
     // Limit the player movement within the screen confines
@@ -99,7 +103,7 @@ public class PlayerControl : MonoBehaviour
         while (true)
         {
             GameObject playerLaserInstance = Instantiate(playerLaser, transform.position, Quaternion.identity) as GameObject;
-            audioController.PlayPlayerFire();
+            FindObjectOfType<AudioController>().PlayPlayerFire();
             playerLaserInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             yield return new WaitForSeconds(fireDelay);
         }
@@ -112,6 +116,12 @@ public class PlayerControl : MonoBehaviour
         ProcessDamage(projectile);
     }
     
+    // Returns the health var
+    public int ReturnPlayerHealth()
+    {
+        return health;
+    }
+
     // Calculates damage and applies to health pool
     private void ProcessDamage(GameObject projectile)
     {
@@ -135,7 +145,7 @@ public class PlayerControl : MonoBehaviour
     {
         FindObjectOfType<UXShepherd>().LoadGameOver();
         GameObject VFXInstance = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
-        audioController.PlayPlayerExplode();
+        FindObjectOfType<AudioController>().PlayPlayerExplode();
         Destroy(VFXInstance, 1);
         Destroy(gameObject);
     }
