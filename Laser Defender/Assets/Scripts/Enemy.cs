@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     // Declare variables
     [Header ("Enemy")]
     [SerializeField] int health = 20;
+    [SerializeField] int points = 10;
 
     [Header ("Projectile")]
     [SerializeField] GameObject enemyLaser;
@@ -20,12 +21,14 @@ public class Enemy : MonoBehaviour
 
     // Cache
     AudioController audioController;
+    ScoreBoard scoreBoard;
 
 
     // Start is called before the first frame update
     void Start()
     {
         audioController = FindObjectOfType<AudioController>();
+        scoreBoard = FindObjectOfType<ScoreBoard>();
         StartCoroutine(FireLaser());
     }
 
@@ -57,6 +60,7 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
+            scoreBoard.IncreaseScore(points);
             Explode();
         }
         else

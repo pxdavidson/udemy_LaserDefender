@@ -30,11 +30,13 @@ public class PlayerControl : MonoBehaviour
 
     // Cache
     AudioController audioController;
+    HealthUI healthUI;
 
     // Start is called before the first frame update
     void Start()
     {
         audioController = FindObjectOfType<AudioController>();
+        healthUI = FindObjectOfType<HealthUI>();
         SetMovementLimit();
     }
 
@@ -116,6 +118,7 @@ public class PlayerControl : MonoBehaviour
         DamageDealer damageDealer = projectile.GetComponent<DamageDealer>();
         if (!damageDealer) { return; }
         health -= damageDealer.GetDamage();
+        healthUI.SetPlayerHealth(health);
         damageDealer.Hit();
         if (health <= 0)
         {

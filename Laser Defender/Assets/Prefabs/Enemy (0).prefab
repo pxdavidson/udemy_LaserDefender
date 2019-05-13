@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  points: 300
   enemyLaser: {fileID: 5890728723657038213, guid: 42170a962ed15ae4c8b4c6e0fe33fd27,
     type: 3}
   projectileSpeed: 5

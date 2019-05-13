@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class UXShepherd : MonoBehaviour
 {
     // Declare variables
-    [SerializeField] float deathDelay = 2f;
+    [SerializeField] float deathDelay = 3f;
 
     // Starts the game if LCtrl is pressed
     private void StartGame()
