@@ -38,11 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 3269323023
+    locked: 0
+  - name: Projectile
+    uniqueID: 2930632257
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: GameObjects
     uniqueID: 1116577125
