@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     // Declare variables
     [SerializeField] List<WaveScriptableObject> waveConfig;
-    [SerializeField] bool looping = false;
+    [SerializeField] bool looping = true;
     int startingWave = 0;
 
     // Start is called before the first frame update
