@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -87,7 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -154,6 +162,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -257,6 +266,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542027721592446814, guid: 8c149794796ca524bac168557e200047,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542027721592446814, guid: 8c149794796ca524bac168557e200047,
+        type: 3}
+      propertyPath: orthographic size
+      value: 6.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c149794796ca524bac168557e200047, type: 3}
@@ -518,22 +537,22 @@ PrefabInstance:
     - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: 437
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1043.1
+      value: 565.6
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -3.625
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1003.9
+      value: 998.5
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260111, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
@@ -556,11 +575,15 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 4168880630280260111, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_Text
-      value: 'SHOOTY MC SHOOTY
-
+      value: 'SHOOTY MCSHOOT
 
         IN SPAAACE!'
       objectReference: {fileID: 0}
@@ -575,6 +598,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 8fc2edcb4a8ff004497d2de4b75d8923,
         type: 3}
+    - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260109, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_Name
@@ -588,22 +621,22 @@ PrefabInstance:
     - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -3.625
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -565
+      value: -381.8
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 836.2
+      value: 998.5
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 429.9
+      value: 704.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b544a5decde58c4bac69d9299eccc40, type: 3}

@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -87,7 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -513,12 +521,22 @@ PrefabInstance:
     - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 201
+      value: 239.13
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 590
+      value: 478.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630298352219, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 244.8
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630280260111, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
@@ -531,6 +549,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 4168880630280260111, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -540,12 +563,37 @@ PrefabInstance:
     - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630298352218, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 361.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168880630280260108, guid: 9b544a5decde58c4bac69d9299eccc40,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 151.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b544a5decde58c4bac69d9299eccc40, type: 3}
@@ -679,7 +727,7 @@ PrefabInstance:
     - target: {fileID: 4968336485127939489, guid: 55014d2fa1fdb4c41a167c0342f564b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.14
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 4968336485127939489, guid: 55014d2fa1fdb4c41a167c0342f564b3,
         type: 3}
@@ -946,6 +994,26 @@ PrefabInstance:
     - target: {fileID: 7542027721592446881, guid: 8c149794796ca524bac168557e200047,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542027721592446814, guid: 8c149794796ca524bac168557e200047,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5.2257924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542027721592446814, guid: 8c149794796ca524bac168557e200047,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542027721592446814, guid: 8c149794796ca524bac168557e200047,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542027721592446814, guid: 8c149794796ca524bac168557e200047,
+        type: 3}
+      propertyPath: m_FOVAxisMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
